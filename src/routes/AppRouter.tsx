@@ -16,75 +16,9 @@ import RolePermission from "./UserManagement/RolePermission"
 import UserIdCreation from "./UserManagement/UserIdCreation"
 
 import api from "@/api/axiosInstance"
-
-import AreaUpdateConfiguration from "./OperationalNexus/Area/AreaUpdateConfiguration"
-import ManageArea from "./OperationalNexus/Area/ManageArea"
-import ManageAreaConfiguration from "./OperationalNexus/Area/ManageAreaConfiguration"
-import ManageLines from "./OperationalNexus/Line/ManageLines"
-import ManagePlantConfiguration from "./OperationalNexus/Plant/ManagePlantConfiguration"
-import ManagePlants from "./OperationalNexus/Plant/ManagePlants"
-
-import UpdatePlantConfiguration from "./OperationalNexus/Plant/UpdatePlantConfiguration"
-
-import ManageLineConfiguration from "./OperationalNexus/Line/ManageLineConfiguration"
-import UpdateLineConfiguration from "./OperationalNexus/Line/UpdateLineConfiguration"
-import ManageAirCompressor from "./OperationalNexus/Utilities/AirCompressor/ManageAirCompressor"
-import ManageConfigurationAirCompressor from "./OperationalNexus/Utilities/AirCompressor/ManageConfigurationAirCompressor"
-import ManageUpdateAirCompressor from "./OperationalNexus/Utilities/AirCompressor/ManageUpdateAirCompressor"
-import ManageBoiler from "./OperationalNexus/Utilities/Boiler/ManageBoiler"
-import ManageConfigurationBoiler from "./OperationalNexus/Utilities/Boiler/ManageConfigurationBoiler"
-import ManageUpdateBoiler from "./OperationalNexus/Utilities/Boiler/ManageUpdateBoiler"
-import ManageChiller from "./OperationalNexus/Utilities/Chiller/ManageChiller"
-import ManageConfigurationChiller from "./OperationalNexus/Utilities/Chiller/ManageConfigurationChiller"
-import ManageUpdateChiller from "./OperationalNexus/Utilities/Chiller/ManageUpdateChiller"
-import ManageConfigurationGenerator from "./OperationalNexus/Utilities/Generator/ManageConfigurationGenerator"
-import ManageGenerator from "./OperationalNexus/Utilities/Generator/ManageGenerator"
-import ManageUpdateGenerator from "./OperationalNexus/Utilities/Generator/ManageUpdateGenerator"
-import PPViewAirCompressor from "./PlantPerformance/AirCompressor/PPViewAirCompressor"
-import PPViewBoiler from "./PlantPerformance/Boiler/PPViewBoiler"
-import PPViewChiller from "./PlantPerformance/Chiller/PPViewChiller"
-import GeneratorDetailsPage from "./PlantPerformance/Generator/GeneratorDetailsPage"
-import GenInfoAndKPI from "./PlantPerformance/Generator/GenInfoAndKPI"
-import GenMonitoring from "./PlantPerformance/Generator/GenMonitoring"
-import PPViewGenerator from "./PlantPerformance/Generator/PPViewGenerator"
-
-import PPUtilityHeader from "@/components/PPUtilityHeader"
-import UtilityHeader from "@/components/UtilityHeader"
-import AlarmAndNotifications from "./Alarms/AlarmTrends"
-import SignalRTest from "./Alarms/SignalRTest"
-import ManageEdgeDevice from "./OperationalNexus/EdgeDevice/ManageEdgeDevice"
-import ManageEdgeDeviceConfiguration from "./OperationalNexus/EdgeDevice/ManageEdgeDeviceConfiguration"
-import UpdateEdgeDeviceConfiguration from "./OperationalNexus/EdgeDevice/UpdateEdgeDeviceConfiguration"
-import AirCompressorDetailsPage from "./PlantPerformance/AirCompressor/AirCompressorDetailsPage"
-import AirCompressorInfoAndKPI from "./PlantPerformance/AirCompressor/AirCompressorInfoAndKPI"
-import AirCompressorMonitoring from "./PlantPerformance/AirCompressor/AirCompressorMonitoring"
-import BoilerDetailsPage from "./PlantPerformance/Boiler/BoilerDetailsPage"
-import BoilerInfoAndKPI from "./PlantPerformance/Boiler/BoilerInfoAndKPI"
-import BoilerMonitoring from "./PlantPerformance/Boiler/BoilerMonitoring"
-import ChillerDetailsPage from "./PlantPerformance/Chiller/ChillerDetailsPage"
-import ChillerInfoAndKPI from "./PlantPerformance/Chiller/ChillerInfoAndKPI"
-import ChillerMonitoring from "./PlantPerformance/Chiller/ChillerMonitoring"
-import UtilityActivePowerDetail from "./PlantPerformance/DetailsPage/UtilityActivePowerDetail"
-import UtilityApparentPowerDetail from "./PlantPerformance/DetailsPage/UtilityApparentPowerDetail"
-import UtilityCurrentDetail from "./PlantPerformance/DetailsPage/UtilityCurrentDetail"
-import UtilityEnergyConsumptionKvahDetail from "./PlantPerformance/DetailsPage/UtilityEnergyConsumptionKvahDetail"
-import UtilityEnergyConsumptionKvarhDetail from "./PlantPerformance/DetailsPage/UtilityEnergyConsumptionKvarhDetail"
-import UtilityEnergyConsumptionKwhDetail from "./PlantPerformance/DetailsPage/UtilityEnergyConsumptionKwhDetail"
-import UtilityFrequencyDetail from "./PlantPerformance/DetailsPage/UtilityFrequencyDetail"
-import UtilityLineWiseVoltageDetail from "./PlantPerformance/DetailsPage/UtilityLineWiseVoltageDetail"
-import UtilityPhaseWiseVoltageDetail from "./PlantPerformance/DetailsPage/UtilityPhaseWiseVoltageDetail"
-import UtilityPowerFactorDetail from "./PlantPerformance/DetailsPage/UtilityPowerFactorDetail"
-import UtilityReactivePowerDetail from "./PlantPerformance/DetailsPage/UtilityReactivePowerDetail"
-
-import PPYogurtLine from "./PlantPerformance/YogurtLine/PPYogurtLine"
-import ViewPPYogurtline from "./PlantPerformance/YogurtLine/ViewPPYogurtLine"
-import YLineInfoAndKPI from "./PlantPerformance/YogurtLine/YLineInfoAndKPI"
-import YLineMonitoring from "./PlantPerformance/YogurtLine/YLineMonitoring"
-import YogurtLineDetailsPage from "./PlantPerformance/YogurtLine/YogurtLineDetailsPage"
-import EnergyProducedDetail from "./PlantPerformance/DetailsPage/EnergyProducedDetail"
-import ThdCurrentDetail from "./PlantPerformance/DetailsPage/ThdCurrentDetail"
-import ThdVoltageDetail from "./PlantPerformance/DetailsPage/ThdVoltageDetail"
 import AlarmTrace from "./Alarms/AlarmTrace"
+import DigitalLog from "./DigitalLogbook/DigitalLog"
+import MocHeader from "@/components/moc/MocHeader"
 
 interface INavbarProps {
   isOpenMenu: boolean
@@ -204,7 +138,7 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
             </AccessWrapper>
           }
         />
-        <Route
+        {/* <Route
           path="/on-plant"
           element={
             <AccessWrapper
@@ -214,8 +148,8 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
               <ManagePlants />
             </AccessWrapper>
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/on-plant/configuration"
           element={
             <AccessWrapper
@@ -302,10 +236,10 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
               <UpdateLineConfiguration user={user} />
             </AccessWrapper>
           }
-        />
+        /> */}
 
         {/* Edge Devices */}
-        <Route
+        {/* <Route
           path="/edge-devices"
           element={
             <AccessWrapper
@@ -317,8 +251,8 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
               <ManageEdgeDevice />
             </AccessWrapper>
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/edge-devices/configuration"
           element={
             <AccessWrapper
@@ -488,7 +422,7 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
               <ManageUpdateGenerator user={user} />
             </AccessWrapper>
           }
-        />
+        /> */}
 
         {/* Plant Performance  View Page*/}
         <Route
@@ -500,12 +434,12 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
                 .get("/plantPerformanceUtilities")
                 ?.includes(user?.role || "")}
             >
-              <PPUtilityHeader />
+              <MocHeader />
             </AccessWrapper>
           }
         />
         {/* Gen. View Page*/}
-        <Route
+        {/* <Route
           path="/plantPerformanceUtilities/:plantName/:lineName/Generator"
           element={
             <AccessWrapper
@@ -517,11 +451,11 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
               <PPViewGenerator />
             </AccessWrapper>
           }
-        />
+        /> */}
 
         {/* Gen. Detail Page*/}
 
-        <Route
+        {/* <Route
           path="/plantPerformanceUtilities/:plantName/:lineName/Generator/:id"
           element={
             <AccessWrapper
@@ -600,10 +534,10 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
               element={<UtilityPowerFactorDetail type="generator" />}
             />
           </Route>
-        </Route>
+        </Route> */}
         {/* Boiler View Page*/}
 
-        <Route
+        {/* <Route
           path="/plantPerformanceUtilities/:plantName/:lineName/Boiler"
           element={
             <AccessWrapper
@@ -694,102 +628,11 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
               element={<UtilityPowerFactorDetail type="boiler" />}
             />
           </Route>
-        </Route>
+        </Route> */}
 
-        {/* Chiller View Page*/}
-
-        <Route
-          path="/plantPerformanceUtilities/:plantName/:lineName/Chiller"
-          element={
-            <AccessWrapper
-              user={user}
-              accessRole={roleMap
-                .get("/plantPerformanceUtilities")
-                ?.includes(user?.role || "")}
-            >
-              <PPViewChiller />
-            </AccessWrapper>
-          }
-        />
-        <Route
-          path="/plantPerformanceUtilities/:plantName/:lineName/chiller/:id"
-          element={
-            <AccessWrapper
-              user={user}
-              accessRole={roleMap
-                .get("/plantPerformanceUtilities")
-                ?.includes(user?.role || "")}
-            >
-              <ChillerDetailsPage />
-            </AccessWrapper>
-          }
-        >
-          <Route index element={<ChillerInfoAndKPI />} />
-
-          <Route path="monitoring">
-            <Route index element={<ChillerMonitoring />} />
-            <Route
-              path="energyProduced"
-              element={<EnergyProducedDetail utilityType="chiller" />}
-            />
-            <Route
-              path="Thd-I"
-              element={<ThdCurrentDetail utilityType="chiller" />}
-            />
-            <Route
-              path="Thd-V"
-              element={<ThdVoltageDetail utilityType="chiller" />}
-            />
-
-            <Route
-              path="phaseWiseVoltage"
-              element={<UtilityPhaseWiseVoltageDetail type="chiller" />}
-            />
-            <Route
-              path="lineWiseVoltage"
-              element={<UtilityLineWiseVoltageDetail type="chiller" />}
-            />
-            <Route
-              path="activePower"
-              element={<UtilityActivePowerDetail type="chiller" />}
-            />
-            <Route
-              path="reactivePower"
-              element={<UtilityReactivePowerDetail type="chiller" />}
-            />
-            <Route
-              path="apparentPower"
-              element={<UtilityApparentPowerDetail type="chiller" />}
-            />
-            <Route
-              path="kWhEnergy"
-              element={<UtilityEnergyConsumptionKwhDetail type="chiller" />}
-            />
-            <Route
-              path="kVArhEnergy"
-              element={<UtilityEnergyConsumptionKvarhDetail type="chiller" />}
-            />
-            <Route
-              path="kVAhEnergy"
-              element={<UtilityEnergyConsumptionKvahDetail type="chiller" />}
-            />
-            <Route
-              path="current"
-              element={<UtilityCurrentDetail type="chiller" />}
-            />
-            <Route
-              path="frequency"
-              element={<UtilityFrequencyDetail type="chiller" />}
-            />
-            <Route
-              path="powerFactor"
-              element={<UtilityPowerFactorDetail type="chiller" />}
-            />
-          </Route>
-        </Route>
 
         {/* aircompressor View Page*/}
-        <Route
+        {/* <Route
           path="/plantPerformanceUtilities/:plantName/:lineName/aircompressor"
           element={
             <AccessWrapper
@@ -880,7 +723,7 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
               element={<UtilityPowerFactorDetail type="airComp" />}
             />
           </Route>
-        </Route>
+        </Route> */}
 
         {/* For PP-Yougurt Line */}
         <Route
@@ -892,25 +735,11 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
                 .get("/plantPerformanceYogurtLine")
                 ?.includes(user?.role || "")}
             >
-              <PPYogurtLine />
+              <DigitalLog />
             </AccessWrapper>
           }
         />
-
-        <Route
-          path="/plantPerformanceYogurtLine/:plantName"
-          element={
-            <AccessWrapper
-              user={user}
-              accessRole={roleMap
-                .get("/plantPerformanceYogurtLine")
-                ?.includes(user?.role || "")}
-            >
-              <ViewPPYogurtline />
-            </AccessWrapper>
-          }
-        />
-        <Route
+        {/* <Route
           path="/plantPerformanceYogurtLine/:plantName/:id"
           element={
             <AccessWrapper
@@ -923,7 +752,7 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
             </AccessWrapper>
           }
         >
-          <Route index element={<YLineInfoAndKPI />} />
+    
           <Route path="monitoring">
             <Route index element={<YLineMonitoring />} />
             <Route
@@ -987,7 +816,7 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
               element={<UtilityPowerFactorDetail type="line" />}
             />
           </Route>
-        </Route>
+        </Route> */}
 
         {/* For Testing SignAL R -- Alarms Trace*/}
         <Route

@@ -35,19 +35,4 @@ const AccessWrapper: React.FunctionComponent<IAccessWrapperProps> = ({
   return <div className="w-full">{children}</div>
 }
 
-// <div className="w-full">
-//   {accessRole.includes(user.role) ? (
-//     children
-//   ) : (
-//     <div className="w-full items-center justify-center pt-24 md:pt-48 lg:pt-54">
-//       <div className="font-bold text-3xl px-6 text-center flex items-center justify-center">
-//         <HiExclamation className="w-10 h-10 text-error" />
-//       </div>
-//       <div className="px-6 text-lg text-center">Not Authorized</div>
-//     </div>
-//   )}
-// </div>
-//   )
-// }
-
 export default AccessWrapper

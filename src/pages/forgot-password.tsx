@@ -38,15 +38,15 @@ const ForgotPassword = () => {
       <div className="bg-white shadow-2xl rounded-2xl p-6 sm:p-8 w-full max-w-md transform transition-all hover:scale-[1.02] space-y-6">
         {/* Logos */}
         {/* <div className="w-[30vw] pl-16 flex justify-center items-center mb-3 ml-16"> */}
-        <div className="flex justify-center pl-16  items-center gap-4  ml-16">
-          <img
+        <div className="flex justify-center  items-center gap-4  ml-46">
+          {/* <img
             src="/assets/images/HSA-Logo.svg"
             className="h-12 sm:h-14 cursor-pointer"
             alt="HSA Logo"
-          />
-          <div className="border-l-4 h-10 sm:h-12 border-[#FFCB05]"></div>
+          /> */}
+          {/* <div className="border-l-4 h-10 sm:h-12 border-[#FFCB05]"></div> */}
           <img
-            src="/assets/images/Elitia-EMS.svg"
+            src="/assets/images/companylogo.png"
             className="h-12 sm:h-14 cursor-pointer"
             alt="EMS Logo"
           />

@@ -31,30 +31,3 @@ export const useUserStore = create<Store>((set) => ({
 }))
 
 export default useUserStore
-// export const useUserStore = create<Store>((set) => ({
-//   user: null,
-//   setUser: (user) => set({ user }),
-//   token: null,
-//   refreshToken: null,
-//   userId: null,
-//   setUserId: (userId) => set({ userId }),
-
-//   login: (token, refreshToken) => set({ token, refreshToken }),
-
-//   logout: () => set({ user: null, token: null, refreshToken: null }),
-// }))
-
-// import { create } from "zustand"
-
-// import { IUser } from "@/utils/types"
-
-// interface IUserState {
-//   user: null | IUser
-//   setUser: (user: null | IUser) => void
-// }
-// const userStore = create<IUserState>((set) => ({
-//   user: null,
-//   setUser: (user) => set({ user }),
-// }))
-
-// export default userStore
