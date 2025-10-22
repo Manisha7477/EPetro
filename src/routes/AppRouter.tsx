@@ -18,7 +18,7 @@ import UserIdCreation from "./UserManagement/UserIdCreation"
 import api from "@/api/axiosInstance"
 import AlarmTrace from "./Alarms/AlarmTrace"
 import DigitalLog from "./DigitalLogbook/DigitalLog"
-import MocHeader from "@/components/moc/MocHeader"
+import MocDashboard from "@/components/moc/MocDashboard"
 
 interface INavbarProps {
   isOpenMenu: boolean
@@ -434,7 +434,7 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
                 .get("/plantPerformanceUtilities")
                 ?.includes(user?.role || "")}
             >
-              <MocHeader />
+              <MocDashboard />
             </AccessWrapper>
           }
         />

@@ -58,6 +58,16 @@ export const DIGITAL_HEADER_DATA: ITableHeader[] = [
   { name: "action", display: "Action" },
 ]
 
+export const MOC_HEADER_DATA: ITableHeader[] = [
+  { name: "slNo", display: "S.No." },
+  { name: "mocID", display: "MoC ID" },
+  { name: "request", display: "Total Requests" },
+  { name: "place", display: "Place" },
+  { name: "name", display: "Name" },
+  { name: "time", display: "Time" },
+  { name: "action", display: "Action" },
+]
+
 export const USER_STRUCTURE_HEADER_DATA: ITableHeader[] = [
   { name: "slNo", display: "S.No.", visible: true },
   { name: "employeeId", display: "Employee ID", visible: true },
