@@ -70,3 +70,13 @@ select{
 .menu li a:focus{
    @apply bg-primary text-base-100;
 }
+
+html, body {
+  overflow: hidden;
+  height: 100vh;
+}
+
+#__next {
+  height: 100vh;
+  overflow: hidden;
+}

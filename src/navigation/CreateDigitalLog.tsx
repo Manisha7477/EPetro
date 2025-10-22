@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { FaSearch } from "react-icons/fa"
 import { Plus } from "lucide-react"
 
-interface PageHeaderWithSearchAndAddProps {
+interface CreateDigitalLogProps {
   title: string
   searchQuery?: string
   onSearchChange?: (query: string) => void
@@ -12,7 +12,7 @@ interface PageHeaderWithSearchAndAddProps {
   rightContent?: React.ReactNode
 }
 
-const PageHeaderWithSearchAndAdd: React.FC<PageHeaderWithSearchAndAddProps> = ({
+const CreateDigitalLog: React.FC<CreateDigitalLogProps> = ({
   title,
   searchQuery,
   onSearchChange,
@@ -64,10 +64,10 @@ const PageHeaderWithSearchAndAdd: React.FC<PageHeaderWithSearchAndAddProps> = ({
                 value={searchQuery}
                 onChange={handleSearchChange}
                 placeholder="Search Keyword"
-                className="w-48 rounded-lg border border-gray-300 py-1 pl-8 pr-3 text-xs placeholder-gray-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition"
+                className="w-50 rounded-lg border border-gray-300 py-2 pl-8 pr-3 text-xs placeholder-gray-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition"
               />
               <FaSearch
-                className="absolute left-2 top-1.5 text-gray-400 pointer-events-none"
+                className="absolute left-2 top-2.5 text-gray-400 pointer-events-none"
                 size={14}
               />
 
@@ -81,15 +81,18 @@ const PageHeaderWithSearchAndAdd: React.FC<PageHeaderWithSearchAndAddProps> = ({
           )}
 
           {/* 🔹 Add Button */}
-          {showAddButton && onAddClick && (
+          {/* {showAddButton && onAddClick && (
             <button
               className="flex items-center gap-1 whitespace-nowrap rounded-lg border border-primary bg-white px-3 py-1.5 text-xs font-medium text-primary shadow-sm transition hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary shadow-inner shadow-[#010810]"
               onClick={onAddClick}
             >
               {addButtonLabel ? addButtonLabel : <Plus className="h-3 w-3" />}
             </button>
-          )}
+          )} */}
 
+          <button
+          className="flex items-center gap-1 whitespace-nowrap rounded-lg border border-primary bg-white px-3 py-1.5 text-xs font-medium text-primary shadow-sm transition hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary shadow-inner shadow-[#010810]">Add
+          </button>
           {/* 🔹 Optional Right Content */}
           {rightContent && rightContent}
         </div>
@@ -98,4 +101,4 @@ const PageHeaderWithSearchAndAdd: React.FC<PageHeaderWithSearchAndAddProps> = ({
   )
 }
 
-export default PageHeaderWithSearchAndAdd
+export default CreateDigitalLog

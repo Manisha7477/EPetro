@@ -95,7 +95,7 @@ const Pagination: React.FC<PaginationProps> = ({
   }
 
   return (
-    <div className="flex justify-between items-center gap-4">
+    <div className="flex justify-between items-center gap-4 -mt-12 -mb-10">
       <div className="dropdown dropdown-top">
         <div tabIndex={0} role="button" className="btn btn-sm m-1">
           {itemsPerPage} ▼

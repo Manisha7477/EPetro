@@ -153,7 +153,7 @@ const SignInForm: React.FunctionComponent = () => {
                   type="button"
                   className="btn btn-ghost text-[#0800a7] w-full sm:w-1/2"
                   // onClick={() => alert("Redirect to Forgot Password page")}
-                  onClick={() => router.push("/forgot-password")}
+                  // onClick={() => router.push("/forgot-password")}
                   // onClick={() => router.push("/reset-password")}
                   disabled={isSubmitting || loading}
                 >

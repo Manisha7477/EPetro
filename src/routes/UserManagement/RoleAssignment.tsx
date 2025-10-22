@@ -14,9 +14,9 @@ import Pagination from "@/components/Pagination" // Correct import path
 import api from "@/api/axiosInstance"
 import { FaSearch } from "react-icons/fa"
 import { Plus } from "lucide-react"
-interface IRoleAssignmentProps {}
+interface IRoleAssignmentProps { }
 
-const RoleAssignment: React.FunctionComponent<IRoleAssignmentProps> = ({}) => {
+const RoleAssignment: React.FunctionComponent<IRoleAssignmentProps> = ({ }) => {
   const navigate = useNavigate()
   // const token = nookies.get(null).accessToken || ""
   const [modal, setModal] = useState(false)
@@ -125,15 +125,14 @@ const RoleAssignment: React.FunctionComponent<IRoleAssignmentProps> = ({}) => {
   )
   return (
     // <div className="sm:ml-10 xl:ml-0 min-w-[80vw]">
-      <div className="sm:ml-10 xl:ml-0 w-full max-w-screen-m mx-auto">
+    <div className="sm:ml-10 xl:ml-0 w-full max-w-screen-m mx-auto">
       <div className="border rounded border-base-300">
         <PageHeaderWithSearchAndAdd
           title="User Configuration"
-          searchQuery={searchQuery} 
+          searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           onAddClick={() => navigate("/user-mapping/configuration")}
         />
-
         <div className="overflow-auto h-50 py-1">
           <div className=" screen-height-media w-full">
             {loading ? (
@@ -150,23 +149,8 @@ const RoleAssignment: React.FunctionComponent<IRoleAssignmentProps> = ({}) => {
                     currentPage={currentPage}
                     itemsPerPage={itemsPerPage}
                     showAddButton={false}
-                    
+
                   />
-                  {/* <BasicTable
-                    tableHeader={ROLE_ASSIGNMENT_HEADER_DATA}
-                    tableData={currentItems}
-                    handleDeleteAction={handleDeleteAction}
-                    searchQuery={searchQuery}
-                    setSearchQuery={setSearchQuery}
-                    currentPage={currentPage}
-                    itemsPerPage={itemsPerPage}
-                    showAddButton={true}
-                    addButtonLabel="Create Mapping"
-                    onAddButtonClick={() =>
-                      navigate("/user-mapping/configuration")
-                    }
-                  /> */}
-                  
                 </>
               )
             )}
@@ -175,18 +159,18 @@ const RoleAssignment: React.FunctionComponent<IRoleAssignmentProps> = ({}) => {
 
         {modalDelete && renderDeleteModal()}
         <Pagination
-                    currentPage={currentPage}
-                    totalPages={totalPages}
-                    goToPage={goToPage}
-                    goToNextPage={goToNextPage}
-                    goToPreviousPage={goToPreviousPage}
-                    itemsPerPage={itemsPerPage}
-                    setItemsPerPage={setItemsPerPage}
-                    itemsPerPageOptions={itemsPerPageOptions}
-                  />
+          currentPage={currentPage}
+          totalPages={totalPages}
+          goToPage={goToPage}
+          goToNextPage={goToNextPage}
+          goToPreviousPage={goToPreviousPage}
+          itemsPerPage={itemsPerPage}
+          setItemsPerPage={setItemsPerPage}
+          itemsPerPageOptions={itemsPerPageOptions}
+        />
       </div>
     </div>
   )
-  
+
 }
 export default RoleAssignment
