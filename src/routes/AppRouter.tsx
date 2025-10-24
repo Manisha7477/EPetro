@@ -14,11 +14,10 @@ import RoleAssignment from "./UserManagement/RoleAssignment"
 import RoleAssignmentConfiguration from "./UserManagement/RoleAssignmentConfiguration"
 import RolePermission from "./UserManagement/RolePermission"
 import UserIdCreation from "./UserManagement/UserIdCreation"
-
 import api from "@/api/axiosInstance"
 import AlarmTrace from "./Alarms/AlarmTrace"
 import DigitalLog from "./DigitalLogbook/DigitalLog"
-import MocHeader from "@/components/moc/MocHeader"
+import MocDashboard from "@/components/moc/MocDashboard"
 
 interface INavbarProps {
   isOpenMenu: boolean
@@ -36,7 +35,6 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
         const response = await api.get("/User/GetSubMenuWithRoles")
         console.log("Roles response:", response.data)
         const rolesMap = new Map<string, string[]>()
-
         response.data.forEach(
           (submenu: {
             subMenuName: string
@@ -44,14 +42,10 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
             getRoleList: { roleName: string }[]
           }) => {
             const roleNames = submenu.getRoleList.map((role) => role.roleName)
-
-            // We need a key for the map; if subMenuUrl is blank, use subMenuId or subMenuName
             const key = submenu.subMenuUrl || submenu.subMenuName
-
             rolesMap.set(key, roleNames)
           },
         )
-
         setRoleMap(rolesMap)
       } catch (error) {
         console.error("Error fetching roles:", error)
@@ -59,7 +53,6 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
         setLoadingRoles(false)
       }
     }
-
     fetchRoles()
   }, [token])
   if (!loading && !loadingRoles) {
@@ -434,7 +427,7 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
                 .get("/plantPerformanceUtilities")
                 ?.includes(user?.role || "")}
             >
-              <MocHeader />
+              <MocDashboard />
             </AccessWrapper>
           }
         />

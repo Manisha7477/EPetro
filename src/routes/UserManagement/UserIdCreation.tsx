@@ -1,4 +1,3 @@
-//NEW CODE
 import HorizontalLabelForm from "@/components/forms/HorizontalLabelForm"
 //import UserIdCreationForm from "@/components/forms/UserIdCreationForm"
 import Loading from "@/navigation/Loading"
@@ -35,17 +34,12 @@ const UserIdCreation: React.FunctionComponent<IUserIdCreationProps> = ({
   })
   const initialDefaultValueData = initialFormikValues(USER_CREATION_FORM_DATA)
   const formValidationSchemaData = formValidationSchema(filteredFormData)
-  // console.log(
-  //   "Form data after filtering is " + JSON.stringify(filteredFormData),
-  // )
-
   const fetchAPI = async (updateId: string) => {
     console.log("Update ID:", updateId)
     setLoading(true)
 
     const response = await api
       .get(`/User/GetAllUserDetails_Id?userId=${updateId}`)
-
       .then((res) => {
         if (res.data) {
           const newData = {
@@ -191,7 +185,6 @@ const UserIdCreation: React.FunctionComponent<IUserIdCreationProps> = ({
             <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500 via-blue-600 to-purple-500 rounded-full"></span>
           </div>
         </div>
-        {/* <div className="bg-neutral screen-height-media w-full pl-5 ml-0 pr-9"> */}
         <div className="px-4 py-2 screen-height-media">
           {loading && <Loading />}
           <HorizontalLabelForm

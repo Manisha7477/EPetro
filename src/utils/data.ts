@@ -47,6 +47,29 @@ export const MANAGE_USERS_HEADER_DATA: ITableHeader[] = [
   { name: "action", display: "Action" },
 ]
 
+export const DIGITAL_HEADER_DATA: ITableHeader[] = [
+  { name: "slNo", display: "S.No." },
+  { name: "shiftID", display: "Shift ID" },
+  { name: "date", display: "Date" },
+  { name: "location", display: "Location" },
+  { name: "place", display: "Palace" },
+  { name: "name", display: "Name" },
+  { name: "time", display: "Time" },
+  { name: "action", display: "Action" },
+]
+
+export const MOC_HEADER_DATA: ITableHeader[] = [
+  { name: "slNo", display: "S.No." },
+  { name: "requestNo", display: "Request No." },
+  { name: "title", display: "Title" },
+  { name: "department", display: "Department" },
+  { name: "location", display: "Location" },
+  { name: "requester", display: "Requester" },
+  { name: "date", display: "Date" },
+  { name: "status", display: "Status" },
+  { name: "action", display: "Action" },
+]
+
 export const USER_STRUCTURE_HEADER_DATA: ITableHeader[] = [
   { name: "slNo", display: "S.No.", visible: true },
   { name: "employeeId", display: "Employee ID", visible: true },

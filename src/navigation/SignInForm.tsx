@@ -15,7 +15,7 @@ const SignInForm: React.FunctionComponent = () => {
 
   const onSignIn = async (signInValues: FormikValues) => {
     setLoading(true)
-    setLoginErrorMessage("") // Reset old error
+    setLoginErrorMessage("") 
 
     try {
       const response = await api.post("/User/UserLogin", {
@@ -57,24 +57,14 @@ const SignInForm: React.FunctionComponent = () => {
   }
 
   return (
-    <div className="">
-      {/* Logo Section */}
-      <div className="w-[30vw] pl-5 flex justify-center items-center gap-2 mb-3">
-        {/* <img
-          src="/assets/images/HSA-Logo.svg"
-          className="h-[10vh] cursor-pointer"
-          alt="ems"
-        /> */}
-        {/* <div className="border-l-4 mx-3 p-1 h-16 rounded-sm border-[#FFCB05]"></div> */}
+      <div className="bg-white rounded-lg shadow-2xl px-[3%] py-6 w-[30vw]">
+          <div className="w-[30vw] flex justify-center items-center mb-6 -ml-5">
         <img
           src="/assets/images/companylogo.png"
           className="h-[12vh] cursor-pointer self-end"
           alt="ems"
         />
       </div>
-
-      {/* Form Container */}
-      <div className="bg-white rounded-lg shadow-2xl px-[6%] py-8 w-full">
         {loading && <Loading color="text-base-100" />}
         {loginErrorMessage && (
           <div className="text-error text-sm text-left mb-4">
@@ -106,7 +96,7 @@ const SignInForm: React.FunctionComponent = () => {
           {({ isSubmitting }) => (
             <Form>
               {/* Email Field */}
-              <div className="mb-6">
+              <div className="mb-4">
                 <label className="block text-gray-700 text-md font-bold mb-1">
                   Email ID
                 </label>
@@ -141,7 +131,7 @@ const SignInForm: React.FunctionComponent = () => {
               </div>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-1">
                 <button
                   type="submit"
                   className="btn btn-warning w-full sm:w-1/2"
@@ -149,22 +139,29 @@ const SignInForm: React.FunctionComponent = () => {
                 >
                   {loading ? "Logging In..." : "Log In"}
                 </button>
-                <button
-                  type="button"
-                  className="btn btn-ghost text-[#0800a7] w-full sm:w-1/2"
-                  // onClick={() => alert("Redirect to Forgot Password page")}
-                  onClick={() => router.push("/forgot-password")}
-                  // onClick={() => router.push("/reset-password")}
-                  disabled={isSubmitting || loading}
-                >
-                  Forgot Password?
-                </button>
+                <div className="flex flex-col items-center gap-2">
+                  {/* <button
+                    type="button"
+                    className="text-[#0800a7] underline underline-offset-2 font-medium text-sm"
+                    onClick={() => router.push("/user-register")}
+                    disabled={isSubmitting || loading}
+                  >
+                    New User Register?
+                  </button> */}
+                  <button
+                    type="button"
+                    className="text-[#0800a7] underline underline-offset-2 font-medium text-sm"
+                    // onClick={() => router.push("/forgot-password")}
+                    disabled={isSubmitting || loading}
+                  >
+                    Forgot Password?
+                  </button>
+                </div>
               </div>
             </Form>
           )}
         </Formik>
       </div>
-    </div>
   )
 }
 

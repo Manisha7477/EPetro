@@ -4,7 +4,7 @@ import Router from "next/router"
 import nookies from "nookies"
 
 //  Step 1: Define public routes
-const PUBLIC_ROUTES = ["/signin", "/forgot-password", "/reset-password"]
+const PUBLIC_ROUTES = ["/signin", "/forgot-password", "/reset-password" , "/user-register"]
 
 let isRefreshing = false
 let failedQueue: any[] = []

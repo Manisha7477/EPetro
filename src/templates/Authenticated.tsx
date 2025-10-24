@@ -1,4 +1,3 @@
-// //NEW CODE
 import { BrowserRouter } from "react-router-dom"
 import AppRouter from "@/routes/AppRouter"
 import Navbar from "@/navigation/Navbar"
@@ -7,14 +6,12 @@ import SideBarMenu from "@/navigation/SideBarMenu"
 import { IUser } from "@/utils/types"
 import { useState } from "react"
 import MergedSidebar from "@/navigation/MergedSidebar"
-
 interface IAuthenticatedProps {
   user: IUser
   meta: React.ReactNode
 }
 
-const NAVBAR_HEIGHT = 64 // Example height in pixels; adjust if needed
-
+const NAVBAR_HEIGHT = 64 
 const Authenticated: React.FunctionComponent<IAuthenticatedProps> = ({
   user,
   meta,
@@ -40,7 +37,6 @@ const Authenticated: React.FunctionComponent<IAuthenticatedProps> = ({
             isOpenMenu={isOpen}
           />
         </div>
-
         {/* Main content with padding to avoid scrolling under Navbar */}
         <div className="flex w-full" style={{ paddingTop: NAVBAR_HEIGHT }}>
           {/* Sidebar with full viewport height except navbar */}
@@ -54,7 +50,6 @@ const Authenticated: React.FunctionComponent<IAuthenticatedProps> = ({
               handleMenuStatus={handleClickMenu}
             />
           </div>
-
           {/* Routes content */}
           <main
             className={`flex-1 min-h-screen overflow-x-auto scrollbar-hide transition-all duration-300 ${

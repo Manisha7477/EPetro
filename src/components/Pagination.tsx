@@ -43,9 +43,9 @@ const Pagination: React.FC<PaginationProps> = ({
     }
 
     return (
-      <div className="join">
+      <div className="-mt-20 join">
         <button
-          className="join-item bg-info rounded-t border-b border-base-300  px-4 py-1 disabled:opacity-50 disabled:text-gray-400 disabled:text-sm disabled:bg-transparent disabled:border-b"
+          className="join-item bg-blue-200 rounded-md border-b border-base-300  px-1 py-1 disabled:opacity-50 disabled:text-gray-400 disabled:text-sm disabled:bg-transparent disabled:border-b"
           disabled={currentPage === 1}
           onClick={() => goToPage(1)}
         >
@@ -53,7 +53,7 @@ const Pagination: React.FC<PaginationProps> = ({
         </button>
 
         <button
-          className="join-item bg-info rounded-t border-b border-base-300 font px-4 py-1 disabled:opacity-50 disabled:text-gray-400 disabled:text-sm disabled:bg-transparent disabled:border-b"
+          className="join-item bg-blue-200 rounded-md border-b border-base-300 font px-4 py-1 disabled:opacity-50 disabled:text-gray-400 disabled:text-sm disabled:bg-transparent disabled:border-b"
           disabled={currentPage === 1}
           onClick={goToPreviousPage}
         >
@@ -63,7 +63,7 @@ const Pagination: React.FC<PaginationProps> = ({
         {pageNumbers.map((page) => (
           <button
             key={page}
-            className={`join-item bg-info rounded-t border-b border-base-300 font px-4 py-1 ${
+            className={`join-item bg-info rounded-md border-b border-base-300 font px-4 py-1 ${
               currentPage === page ? "bg-primary text-white" : ""
             }`}
             onClick={() => goToPage(page)}
@@ -72,7 +72,7 @@ const Pagination: React.FC<PaginationProps> = ({
           </button>
         ))}
         <button
-          className="join-item bg-info rounded-t border-b border-base-300 px-4 py-1
+          className="join-item bg-info rounded-md border-b border-base-300 px-4 py-1
              disabled:opacity-50 disabled:text-gray-400 disabled:text-sm
              disabled:bg-transparent disabled:border-b"
           disabled={currentPage === totalPages || totalPages === 0}
@@ -82,7 +82,7 @@ const Pagination: React.FC<PaginationProps> = ({
         </button>
 
         <button
-          className="join-item bg-info rounded-t border-b border-base-300 px-4 py-1
+          className="join-item bg-info rounded-md border-b border-base-300 px-4 py-1
              disabled:opacity-50 disabled:text-gray-400 disabled:text-sm
              disabled:bg-transparent disabled:border-b"
           disabled={currentPage === totalPages || totalPages === 0}
@@ -95,12 +95,12 @@ const Pagination: React.FC<PaginationProps> = ({
   }
 
   return (
-    <div className="flex justify-between items-center gap-4">
-      <div className="dropdown dropdown-top">
+    <div className="flex justify-between items-center gap-4 -mt-12">
+      <div className="dropdown dropdown-top -mt-20">
         <div tabIndex={0} role="button" className="btn btn-sm m-1">
           {itemsPerPage} ▼
         </div>
-        <ul className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-28">
+        <ul className="dropdown-content menu p-2 shadow bg-base-100 rounded-md w-28">
           {itemsPerPageOptions.map((pageSize) => (
             <li key={pageSize}>
               <button onClick={() => setItemsPerPage(pageSize)}>
@@ -114,7 +114,7 @@ const Pagination: React.FC<PaginationProps> = ({
       {renderPaginationButtons()}
 
       {/* Go to page input */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 -mt-20">
         <span>Go to:</span>
         <input
           type="number"
