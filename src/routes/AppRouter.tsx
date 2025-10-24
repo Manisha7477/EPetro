@@ -58,7 +58,7 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
   if (!loading && !loadingRoles) {
     return (
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" />
         <Route
           path="/my-dashboard"
           element={
@@ -74,7 +74,6 @@ const AppRouter: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
           element={
             <AccessWrapper
               user={user}
-              // accessToken={token}
               accessRole={roleMap.get("/manage-users")?.includes(user?.role)}
             >
               <ManageUsers />

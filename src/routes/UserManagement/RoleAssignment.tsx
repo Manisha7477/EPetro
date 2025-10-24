@@ -6,6 +6,7 @@ import { useEffect, useState, useCallback } from "react"
 import ModalComponent from "@/components/ModalComponent"
 import { startCase } from "lodash"
 import axios from "axios"
+import nookies from "nookies"
 import Loading from "@/navigation/Loading"
 import ModalDeleteComponent from "@/components/forms/ModalDeleteComponent"
 import { formatDate, formatDateTime } from "@/utils/convert"
@@ -18,7 +19,7 @@ interface IRoleAssignmentProps { }
 
 const RoleAssignment: React.FunctionComponent<IRoleAssignmentProps> = ({ }) => {
   const navigate = useNavigate()
-  // const token = nookies.get(null).accessToken || ""
+  const token = nookies.get(null).accessToken || ""
   const [modal, setModal] = useState(false)
   const [selectedViewUser, setSelectedViewUser] = useState<Record<
     string,
