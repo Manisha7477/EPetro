@@ -60,11 +60,13 @@ export const DIGITAL_HEADER_DATA: ITableHeader[] = [
 
 export const MOC_HEADER_DATA: ITableHeader[] = [
   { name: "slNo", display: "S.No." },
-  { name: "mocID", display: "MoC ID" },
-  { name: "request", display: "Total Requests" },
-  { name: "place", display: "Place" },
-  { name: "name", display: "Name" },
-  { name: "time", display: "Time" },
+  { name: "requestNo", display: "Request No." },
+  { name: "title", display: "Title" },
+  { name: "department", display: "Department" },
+  { name: "location", display: "Location" },
+  { name: "requester", display: "Requester" },
+  { name: "date", display: "Date" },
+  { name: "status", display: "Status" },
   { name: "action", display: "Action" },
 ]
 

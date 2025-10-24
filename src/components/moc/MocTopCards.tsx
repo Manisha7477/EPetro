@@ -10,15 +10,15 @@ function MocTopCards() {
   ]
 
   return (
-    <div className="w-full bg-blue-50 p-1 rounded-md">
+    <div className="w-full p-1 rounded-md">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 rounded-md">
         {cards.map((card, index) => {
           const Icon = card.icon
           return (
             <div
               key={index}
-              className=" bg-white rounded-md shadow-md p-1 hover:shadow-xl transition-shadow duration-200 border border-gray-300"
-              style={{ boxShadow: '0 -2px 8px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)' }}
+              className=" bg-white rounded-md duration-200 p-2 border border-gray-300"
+              // style={{ boxShadow: '0 -2px 8px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)' }}
             >
               <div className="flex items-center justify-between ml-5">
                 <h6 className="text-sm font-semibold text-gray-600">
