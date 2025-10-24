@@ -4,6 +4,8 @@ import BasicTable from "@/components/tables/BasicTable";
 import {MOC_HEADER_DATA } from "@/utils/data";
 import {useNavigate } from "react-router-dom";
 import MocHeader from "@/navigation/MocHeader";
+import MocTopHeader from "./MocTopHeader";
+import MocTopCards from "./MocTopCards";
 
 // Type for each table row
 interface IMOCTableRow {
@@ -80,23 +82,29 @@ const currentItems = filteredData
   const renderDeleteModal = () => <div>Delete Modal Content</div>;
 
   return (
-    <div className="p-0">
-      <div>
+    <div className="h-screen flex flex-col overflow-hidden">
+      <div className="flex-shrink-0">
         <MocHeader
-          title="MoC Table"
+          title="Management of Change"
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           onAddClick={() => navigate("/manage-users/user-creation")}
         />
       </div>
-      <div className="flex-grow overflow-auto border-t border-gray-200">
-        <div className="screen-height-media w-full">
+      <div className=" mb-1 rounded-md">
+        <MocTopCards />
+      </div>
+
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="flex-1 overflow-auto">
           {loading ? (
-            <div>Loading...</div>
+            <div className="flex items-center justify-center h-full">
+              <div>Loading...</div>
+            </div>
           ) : (
             <BasicTable
               tableHeader={MOC_HEADER_DATA}
-               tableData={currentItems as any}
+              tableData={currentItems as any}
               handleClickEditAction={handleClickEditAction}
               handleClickViewAction={handleClickViewAction}
               handleDeleteAction={handleDeleteAction}
@@ -109,7 +117,9 @@ const currentItems = filteredData
           )}
         </div>
       </div>
-      <div className="pt-2 border-t border-gray-200">
+      
+      {/* Pagination - Fixed at bottom */}
+      <div className="mb-2">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
@@ -121,7 +131,7 @@ const currentItems = filteredData
           itemsPerPageOptions={itemsPerPageOptions}
         />
       </div>
-
+      
       {modal && renderModal()}
       {modalDelete && renderDeleteModal()}
     </div>
@@ -129,4 +139,3 @@ const currentItems = filteredData
 };
 
 export default MocDashboard;
-

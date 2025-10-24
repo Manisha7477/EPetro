@@ -42,14 +42,13 @@ const MocHeader: React.FC<MocHeaderProps> = ({
 
   return (
     <div
-      className="relative bg-white rounded-t-lg px-4 pt-2 pb-2 flex items-center justify-between"
+      className="relative bg-white rounded-t-lg px-2 pt-2 pb-2 flex items-center justify-between"
       style={{ width: "100%" }}
     >
       {/* 🔹 Title */}
-      <div className="px-4 py-1 relative border-b-0 inline-block text-base font-semibold flex items-center gap-6 bg-gradient-to-r from-blue-500 via-blue-600 to-purple-500 text-transparent bg-clip-text">
+       <h1 className="text-black text-2xl font-bold">
         {title}
-        <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500 via-blue-600 to-purple-500 rounded-full"></span>
-      </div>
+      </h1>
 
       {/* 🔹 Right Side Actions */}
       {(searchQuery !== undefined &&
@@ -64,7 +63,7 @@ const MocHeader: React.FC<MocHeaderProps> = ({
                 value={searchQuery}
                 onChange={handleSearchChange}
                 placeholder="Search Keyword"
-                className="w-50 rounded-lg border border-gray-300 py-2 pl-8 pr-3 text-xs placeholder-gray-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition"
+                className="rounded-lg border border-gray-300 py-2 pl-8 pr-3 text-xs placeholder-gray-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition"
               />
               <FaSearch
                 className="absolute left-2 top-2.5 text-gray-400 pointer-events-none"
@@ -81,18 +80,14 @@ const MocHeader: React.FC<MocHeaderProps> = ({
           )}
 
           {/* 🔹 Add Button */}
-          {/* {showAddButton && onAddClick && (
+          {showAddButton && onAddClick && (
             <button
-              className="flex items-center gap-1 whitespace-nowrap rounded-lg border border-primary bg-white px-3 py-1.5 text-xs font-medium text-primary shadow-sm transition hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary shadow-inner shadow-[#010810]"
-              onClick={onAddClick}
+              className="flex items-center gap-1 whitespace-nowrap rounded-lg border border-primary bg-white px-3 py-2 text-xs font-medium text-primary shadow-sm transition hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary shadow-inner shadow-[#010810]"
+              // onClick={onAddClick}
             >
-              {addButtonLabel ? addButtonLabel : <Plus className="h-3 w-3" />}
+              {addButtonLabel ? addButtonLabel : <Plus className="h-4 w-4" />} New MoC Request
             </button>
-          )} */}
-
-          <button
-          className="flex items-center gap-1 whitespace-nowrap rounded-lg border border-primary bg-white px-3 py-1.5 text-xs font-medium text-primary shadow-sm transition hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary shadow-inner shadow-[#010810]">Add
-          </button>
+          )}
           {/* 🔹 Optional Right Content */}
           {rightContent && rightContent}
         </div>

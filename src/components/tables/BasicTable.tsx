@@ -201,91 +201,96 @@ const BasicTable: React.FunctionComponent<IBasicTableProps> = ({
   })
 
   return (
-    <>
-      <div className="border border-gray-300 bg-white shadow-sm -mb-10 max-h-[calc(105vh-200px)] overflow-auto">
-        <div className="w-full overflow-x-auto">
-          <table className="w-full table-auto text-left border-collapse">
-            <thead className="sticky top-0 bg-neutral z-10">
-              {table.getHeaderGroups().map((headerGroup) => (
-                <tr key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => (
-                    <th
-                      key={header.id}
-                      colSpan={header.colSpan}
-                      className={classNames(
-                        "border-b border-gray-200 px-4 py-3 text-xs font-bold tracking-wider text-secondary select-none",
-                        header.column.getCanSort() ? "cursor-pointer" : "",
-                        header.id === "action" ? "text-center" : "text-left"
+<div className="  rounded-md border border-gray-300 bg-white shadow-sm flex flex-col" style={{ maxHeight: '340px' }}>
+      {/* Table Header - Sticky */}
+      <div className="flex-shrink-0 overflow-x-auto border-b border-gray-200 ">
+        <table className="w-full table-auto text-left border-collapse">
+        <thead className="bg-blue-200">
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th
+                    key={header.id}
+                    colSpan={header.colSpan}
+                    className={classNames(
+                      "px-3 py-3 text-xs font-bold tracking-wider text-secondary select-none",
+                      header.column.getCanSort() ? "cursor-pointer" : "",
+                      header.id === "action" ? "text-center" : "text-left"
+                    )}
+                    onClick={header.column.getCanSort() ? header.column.getToggleSortingHandler() : undefined}
+                    aria-sort={
+                      header.column.getIsSorted()
+                        ? header.column.getIsSorted() === "asc"
+                          ? "ascending"
+                          : "descending"
+                        : "none"
+                    }
+                  >
+                    <div className="flex items-center gap-1">
+                      {flexRender(header.column.columnDef.header, header.getContext())}
+                      {header.column.getCanSort() && (
+                        <>
+                          {header.column.getIsSorted() === "asc" && <HiArrowSmUp className="h-4 w-4 text-secondary" />}
+                          {header.column.getIsSorted() === "desc" && <HiArrowSmDown className="h-4 w-4 text-secondary" />}
+                          {!header.column.getIsSorted() && (
+                            <div className="flex flex-col">
+                              <HiArrowSmUp className="h-2 w-2 text-secondary" />
+                              <HiArrowSmDown className="h-2 w-2 text-secondary -mt-0.5" />
+                            </div>
+                          )}
+                        </>
                       )}
-                      onClick={header.column.getCanSort() ? header.column.getToggleSortingHandler() : undefined}
-                      aria-sort={
-                        header.column.getIsSorted()
-                          ? header.column.getIsSorted() === "asc"
-                            ? "ascending"
-                            : "descending"
-                          : "none"
-                      }
+                    </div>
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+        </table>
+      </div>
+
+      {/* Table Body - Scrollable */}
+      <div className="flex-1 overflow-auto">
+        <table className="w-full table-auto text-left border-collapse">
+          <tbody>
+            {table.getRowModel().rows.map((row, rowIndex) => {
+              const serialNumber = (currentPage - 1) * itemsPerPage + rowIndex + 1
+              return (
+                <tr
+                  key={row.id}
+                  className={classNames(
+                    rowIndex % 2 === 0 ? "bg-white" : "bg-gray-50",
+                    "hover:bg-primary/10 transition cursor-pointer"
+                  )}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <td
+                      key={cell.id}
+                      className={classNames(
+                        "p-2 align-top text-xs text-gray-700",
+                        "whitespace-normal",
+                        cell.column.id === "slNo" ? "font-semibold" : ""
+                      )}
                     >
-                      <div className="flex items-center gap-1">
-                        {flexRender(header.column.columnDef.header, header.getContext())}
-                        {header.column.getCanSort() && (
-                          <>
-                            {header.column.getIsSorted() === "asc" && <HiArrowSmUp className="h-4 w-4 text-secondary" />}
-                            {header.column.getIsSorted() === "desc" && <HiArrowSmDown className="h-4 w-4 text-secondary" />}
-                            {!header.column.getIsSorted() && (
-                              <div className="flex flex-col">
-                                <HiArrowSmUp className="h-2 w-2 text-secondary" />
-                                <HiArrowSmDown className="h-2 w-2 text-secondary -mt-0.5" />
-                              </div>
-                            )}
-                          </>
-                        )}
-                      </div>
-                    </th>
+                      {cell.column.id === "slNo"
+                        ? serialNumber
+                        : flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </td>
                   ))}
                 </tr>
-              ))}
-            </thead>
-            <tbody>
-              {table.getRowModel().rows.map((row, rowIndex) => {
-                const serialNumber = (currentPage - 1) * itemsPerPage + rowIndex + 1
-                return (
-                  <tr
-                    key={row.id}
-                    className={classNames(
-                      rowIndex % 2 === 0 ? "bg-white" : "bg-gray-50",
-                      "hover:bg-primary/10 transition cursor-pointer"
-                    )}
-                  >
-                    {row.getVisibleCells().map((cell) => (
-                      <td
-                        key={cell.id}
-                        className={classNames(
-                          "p-2 align-top text-xs text-gray-700",
-                          "whitespace-normal",
-                          cell.column.id === "slNo" ? "font-semibold" : ""
-                        )}
-                      >
-                        {cell.column.id === "slNo"
-                          ? serialNumber
-                          : flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </td>
-                    ))}
-                  </tr>
-                )
-              })}
-              {table.getRowModel().rows.length === 0 && (
-                <tr>
-                  <td colSpan={table.getAllColumns().length} className="py-8 text-center text-gray-500">
-                    No records found.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+              )
+            })}
+            {table.getRowModel().rows.length === 0 && (
+              <tr>
+                <td colSpan={table.getAllColumns().length} className="py-8 text-center text-gray-500">
+                  No records found.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
-    </>
+    </div>
   )
 }
 
