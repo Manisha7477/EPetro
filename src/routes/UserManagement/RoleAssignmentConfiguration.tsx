@@ -24,10 +24,8 @@ const RoleAssignmentConfiguration: React.FunctionComponent<
   const navigate = useNavigate()
   const query = useQuery()
   const id = query.get("id")
-
   const [loading, setLoading] = useState(false)
   const [updateDataById, setUpdateDataById] = useState([])
-
   const initialDefaultValueData = initialFormikValues(ROLE_ASSIGNMENT_FORM_DATA)
   const formValidationSchemaData = formValidationSchema(
     ROLE_ASSIGNMENT_FORM_DATA,
@@ -104,10 +102,8 @@ const RoleAssignmentConfiguration: React.FunctionComponent<
   return (
     <div>
       <div className="sm:border rounded border-base-300">
-        {/* {/* <div className="bg-info rounded-t border-b border-base-300 font-bold px-4 py-1" */}
         <PageHeaderWithSearchAndAdd title="User Mapping" 
         />
-        {/* <div className="bg-neutral screen-height-media w-full pl-5 ml-0 pr-9"> */}
         <div className="p-4 screen-height-media">
           {loading && <Loading />}
           <HorizontalLabelForm

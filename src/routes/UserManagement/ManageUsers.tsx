@@ -37,7 +37,7 @@ const ManageUsers: React.FC<IManageUsersProps> = () => {
   const [totalItems, setTotalItems] = useState(0)
   const [searchQuery, setSearchQuery] = useState("")
   const itemsPerPageOptions = [5, 10, 15, 20, 30, 40, 50]
-  const [itemsPerPage, setItemsPerPage] = useState(itemsPerPageOptions[1]) // Default 10 per page
+  const [itemsPerPage, setItemsPerPage] = useState(itemsPerPageOptions[1])
   const [tableHeaderFilter, setTableHeaderFilter] = useState(USER_STRUCTURE_HEADER_DATA)
 
   const {
@@ -219,7 +219,7 @@ const ManageUsers: React.FC<IManageUsersProps> = () => {
                 setSearchQuery={setSearchQuery}
                 currentPage={currentPage}
                 itemsPerPage={itemsPerPage}
-                showAddButton={false} // moved Add button out of BasicTable
+                showAddButton={false}
               />
             )
           )}

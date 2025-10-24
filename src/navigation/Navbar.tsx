@@ -61,7 +61,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = ({
       transition={{ duration: 0.4 }}
       className="fixed top-0 w-full z-50
       flex justify-between items-center
-      bg-[#1E6FBF]
+      bg-gradient-to-l from-[#1E6FBF] from-10% to-transparent
       h-16 md:h-16 lg:h-18
       px-4
       shadow-inner shadow-[#010810] shadow-[inset_0_6px_16px_rgba(0,0,0,0.25)]"
@@ -69,7 +69,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = ({
       {/* Left - Logos */}
       <div className="w-fit flex justify-center items-center gap-4">
         <button
-          className="btn btn-square btn-xs btn-outline text-neutral-100"
+          className="btn btn-square btn-xs btn-outline border-black text-black hover:bg-black hover:text-white transition"
           onClick={handleClickMenu}
         >
           {!isOpenMenu ? (

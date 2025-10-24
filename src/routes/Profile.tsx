@@ -73,7 +73,6 @@ const Profile: React.FunctionComponent<IProfileProps> = ({ user }) => {
                 {user?.firstName?.charAt(0)}
               </div>
             )}
-
             {/* Overlay for actions */}
             {tempAvatar && (
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center gap-3 rounded-full">
@@ -92,7 +91,6 @@ const Profile: React.FunctionComponent<IProfileProps> = ({ user }) => {
               </div>
             )}
           </div>
-
           {/* Avatar Upload */}
           <div className="mt-5 w-full">
             <input
@@ -118,7 +116,6 @@ const Profile: React.FunctionComponent<IProfileProps> = ({ user }) => {
             )}
           </div>
         </div>
-
         {/* Right Column - Profile Info */}
         <div className="md:col-span-2 space-y-6">
           <div className="bg-white rounded-2xl shadow-lg p-6">
@@ -148,7 +145,6 @@ const Profile: React.FunctionComponent<IProfileProps> = ({ user }) => {
               </div>
             </dl>
           </div>
-
           {/* Change Password */}
           <div className="bg-white rounded-2xl shadow-lg p-6">
             <button
@@ -157,7 +153,6 @@ const Profile: React.FunctionComponent<IProfileProps> = ({ user }) => {
             >
               {isChangingPassword ? "Cancel" : "Change Password"}
             </button>
-
             <AnimatePresence>
               {isChangingPassword && (
                 <motion.div
@@ -180,7 +175,6 @@ const Profile: React.FunctionComponent<IProfileProps> = ({ user }) => {
                         <h3 className="text-xl font-semibold mb-4">
                           Update Password
                         </h3>
-
                         {/* Old Password */}
                         <div className="mb-4">
                           <label
@@ -200,7 +194,6 @@ const Profile: React.FunctionComponent<IProfileProps> = ({ user }) => {
                             </p>
                           )}
                         </div>
-
                         {/* New Password */}
                         <div className="mb-4">
                           <label
@@ -220,7 +213,6 @@ const Profile: React.FunctionComponent<IProfileProps> = ({ user }) => {
                             </p>
                           )}
                         </div>
-
                         {/* Confirm Password */}
                         <div className="mb-4">
                           <label
@@ -241,7 +233,6 @@ const Profile: React.FunctionComponent<IProfileProps> = ({ user }) => {
                               </p>
                             )}
                         </div>
-
                         <div className="flex justify-end">
                           <button type="submit" className="btn btn-primary">
                             Save Changes

@@ -1,7 +1,5 @@
-//NEWCODE
 import React, { useState, useEffect } from "react"
 import { FaAngleUp, FaAngleDown } from "react-icons/fa"
-
 import api from "@/api/axiosInstance"
 import { toast } from "react-toastify"
 
@@ -49,7 +47,6 @@ const RolePermission: React.FC = () => {
     [menuId: number]: boolean
   }>({})
   const [selectedRole, setSelectedRole] = useState("All")
-
   const roles = ["Manager", "Engineer", "Operator"]
   const [showConfirmModal, setShowConfirmModal] = useState(false)
 
@@ -233,7 +230,6 @@ const RolePermission: React.FC = () => {
 
     try {
       const response = await api.post(`/Permission/UpdatePermissions`, body)
-
       if (response.status === 200) {
         toast.success("Permissions updated successfully!", {
           autoClose: 1000,
@@ -262,8 +258,6 @@ const RolePermission: React.FC = () => {
     selectedRole === "All" ? roles : roles.filter((r) => r === selectedRole)
 
   return (
-    // <div className="w-full overflow- md:ml-9 p-6 rounded-lg shadow-lg bg-white mt-16">
-
     <div className="sm:ml-10 xl:ml-0 w-full max-w-screen-m mx-auto">
       <div className="border rounded border-base-300">
         <div
@@ -276,7 +270,6 @@ const RolePermission: React.FC = () => {
             <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500 via-blue-600 to-purple-500 rounded-full"></span>
           </div>
           <div className="flex items-center gap-4">
-              {/* Search Input */}
               <div className="relative">
                 <label className="mr-2 font-semibold text-base-content">
               Role:
@@ -294,20 +287,13 @@ const RolePermission: React.FC = () => {
               ))}
             </select>
               </div>
-
-              
             </div>
           </div>
-
         {/* Role Filter Dropdown */}
         <div className="p-2 ">
-          
-
           {/* Table */}
           <div className="overflow-auto max-h-[60vh] border rounded border-base-300">
             <table className="w-full text-sm">
-              {/* <thead>
-                <tr className="bg-base-200 border-b border-base-300 text-base-content"> */}
               <thead className="bg-info text-black text-sm font-semibold">
                 <tr className="border-b border-base-300">
                   <th className="p-3 text-left">Permission</th>
@@ -348,7 +334,6 @@ const RolePermission: React.FC = () => {
                         </td>
                       ))}
                     </tr>
-
                     {expandedMenus[menu.menuId] &&
                       menu.subMenus.map((subMenu) => (
                         <tr key={subMenu.subMenuId} className="bg-base-100">
@@ -378,7 +363,6 @@ const RolePermission: React.FC = () => {
               </tbody>
             </table>
           </div>
-
           {/* Buttons */}
           <div className="mt-4 flex justify-end space-x-4">
             <button

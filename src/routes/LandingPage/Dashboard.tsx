@@ -6,7 +6,7 @@ interface INavbarProps {
 const Dashboard: React.FunctionComponent<INavbarProps> = ({ isOpenMenu }) => {
   return (
      <div className="flex flex-col py-2 gap-1 h-full w-full">
-      My Dashboard
+      Dashboard Coming Soon....
     </div>
   )
 }

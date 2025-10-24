@@ -1,5 +1,4 @@
 import { ReactNode } from "react"
-
 interface IUnauthenticatedProps {
   children: ReactNode
   meta: React.ReactNode

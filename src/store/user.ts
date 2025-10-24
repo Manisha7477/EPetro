@@ -1,4 +1,3 @@
-// store/userStore.ts
 import { IUser } from "@/utils/types"
 import { create } from "zustand"
 

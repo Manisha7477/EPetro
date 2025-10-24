@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css"
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
   const [render, setRender] = useState(false)
-  const PUBLIC_ROUTES = ["/signin", "/forgot-password", "/reset-password"]
+  const PUBLIC_ROUTES = ["/signin", "/forgot-password", "/reset-password", "/user-register"]
 
   useEffect(() => setRender(true), [])
 

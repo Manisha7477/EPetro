@@ -9,8 +9,6 @@ const SignOut: React.FC = () => {
   const router = useRouter()
   const { clearDependents } = useDependentStore()
   const [message, setMessage] = useState("")
-
-  // Zustand actions
   const logout = useUserStore((state) => state.logout)
   const setUserId = useUserStore((state) => state.setUserId)
 
@@ -26,26 +24,21 @@ const SignOut: React.FC = () => {
             `User/Logout?refreshToken=${encodedToken}`,
           )
           console.log("Logout Response:", response.data)
-          setMessage(response.data) // Show message like "Logged Out Successfully."
+          setMessage(response.data)
         }
       } catch (error) {
         console.error("Logout API error:", error)
       } finally {
-        // Clear Zustand state
         logout()
         setUserId(null)
-
-        // Clear dependent state
         clearDependents()
-
-        // Destroy cookies
         nookies.destroy(null, "token", { path: "/" })
         nookies.destroy(null, "refreshToken", { path: "/" })
         nookies.destroy(null, "userId", { path: "/" })
         // Wait a moment, then redirect
         setTimeout(() => {
           router.replace("/signin")
-        }, 500) // Adjust delay as needed
+        }, 500) 
       }
     }
 

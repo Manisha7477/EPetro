@@ -18,9 +18,7 @@ const Main = (props: IMainProps) => {
       setLoadedMain(true)
     }
   }, [loadedMain])
-
   if (loading) return <Loading />
-
   if (!user) return <Unauthenticated {...props} />
   return <Authenticated user={user} {...props} />
 }
