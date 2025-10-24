@@ -19,12 +19,12 @@ const SelectOneField: React.FunctionComponent<ISelectOneFieldProps> = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const result = await axios.get(variable.API!, {
-        //   headers: {
-        //     Authorization: `Bearer ${token}`,
-        //   },
-        // })
-        const result = await api.get(variable.API!)
+        const result = await axios.get(variable.API!, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        // const result = await api.get(variable.API!)
         // Assuming result.data.Data is an array of table data
         setDropOptions(result.data)
       } catch (error) {
